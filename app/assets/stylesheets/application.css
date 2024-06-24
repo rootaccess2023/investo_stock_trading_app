@@ -23,3 +23,11 @@
 * {
    font-family: 'Roboto';
 }
+
+.full-height {
+   height: calc(100vh - 7rem);
+}
+
+.full-height-dashboard {
+   height: calc(100vh - 14.5rem);
+}

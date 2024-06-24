@@ -1,0 +1,53 @@
+<div class="flex">
+    <section>
+        <%= render "shared/nav"%>
+    </section>
+  <main class="w-full h-screen flex flex-col p-8 bg-teal-50 overflow-scroll">
+    <%= render "shared/admin_search"%>
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <% if @traders.empty? %>
+         <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900">
+            No Pending Accounts
+            <p class="mt-1 text-sm font-normal text-gray-500 text-justify dark:text-gray-400">
+                Below is a list of pending accounts that require administrative approval to activate their trading capabilities. Each account has been reviewed for initial compliance but awaits final verification. Please ensure all details are correct and approve or deny each account accordingly.
+            </p>
+        </caption>
+        <% else %>
+        <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-teal-50">
+            Pending Accounts
+            <p class="mt-1 text-sm font-normal text-gray-500 text-justify dark:text-gray-400">
+                Below is a list of pending accounts that require administrative approval to activate their trading capabilities. Each account has been reviewed for initial compliance but awaits final verification. Please ensure all details are correct and approve or deny each account accordingly.
+            </p>
+        </caption>
+        <thead class="text-xsuppercase bg-teal-700 text-white">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Email
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @traders.each do |user| %>
+                <tr class="bg-teal-50 border-b border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap">
+                        <%= user.email %>
+                    </th>
+                    <td class="flex px-6 py-4 text-black gap-4">
+                        <%= link_to approve_admin_user_path(user), data: { "turbo-method": :patch } do %>
+                            <p class="w-fit text-white bg-green-600 font-medium px-2 py-1 rounded">Approve</p>
+                        <% end %>
+                        <%= link_to reject_admin_user_path(user), data: { "turbo-method": :patch } do %>
+                            <p class="w-fit text-white bg-red-600 font-medium px-2 py-1 rounded">Reject</p>
+                        <% end %>
+                    </td>
+                </tr>
+          <% end %>
+        </tbody>
+        <% end %>
+    </table>
+</div>
+</main>
+</div>
