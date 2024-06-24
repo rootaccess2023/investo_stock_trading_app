@@ -69,3 +69,7 @@ end
 gem "tailwindcss-rails", "~> 2.6"
 
 gem "font-awesome-rails"
+
+gem "devise", "~> 4.9"
+
+gem 'rolify'

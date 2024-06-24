@@ -1,0 +1,42 @@
+<div class="flex">
+    <section>
+        <%= render "shared/nav"%>
+    </section>
+  <main class="w-full h-screen flex flex-col p-8 bg-teal-50 overflow-scroll">
+    <%= render "shared/admin_search"%>
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <% if @deleted_traders.empty? %>
+         <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900">
+            No Deleted Accounts
+            <p class="mt-1 text-sm font-normal text-gray-500 text-justify dark:text-gray-400">
+                Deleted accounts are profiles within our stock trading app that have been permanently removed from our system. Account deletion can occur for various reasons, and it results in the irreversible removal of all associated data and access to the account.
+            </p>
+        </caption>
+        <% else %>
+        <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900">
+            Deleted Accounts
+            <p class="mt-1 text-sm font-normal text-gray-500 text-justify dark:text-gray-400">
+                Deleted accounts are profiles within our stock trading app that have been permanently removed from our system. Account deletion can occur for various reasons, and it results in the irreversible removal of all associated data and access to the account.
+            </p>
+        </caption>
+        <thead class="text-xsuppercase bg-teal-700 text-white">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Email
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @deleted_traders.each do |user| %>
+            <tr class="border-b border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap">
+                    <%= user.email %>
+                </th>
+            </tr>
+          <% end %>
+        </tbody>
+        <% end %>
+    </table>
+</div>
+</main>
+</div>

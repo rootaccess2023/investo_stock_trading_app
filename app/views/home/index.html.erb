@@ -1,28 +1,11 @@
-<main class="h-full max-w-[80rem] px-4 mx-auto">
+<main class="h-full mx-auto overflow-scroll">
+    <section>
+        <%= render "home/banner"%>
+    </section>
     <section class="flex flex-col items-center pt-24 pb-16 gap-8">
-        <h2 class="text-6xl text-center font-roboto font-semibold">
-            <span class="font-roboto text-teal-700">Smart</span> trading, 
-            <span class="font-roboto text-teal-700">Bright</span> future
-        </h2>
-        <div class="w-fit text-white text-md bg-teal-700 font-roboto font-medium px-6 py-4 rounded tracking-widest cursor-pointer hover:bg-teal-800">
-            GET STARTED
-        </div>
-        <p class="text-lg text-center"><span class="font-semibold">Investo offers unlimited free access</span> for you to explore at your convenience.</p>
+       <%= render "home/slogan"%>
     </section>
     <section class="pb-44">
-        <ul class="flex flex-col justify-center gap-6 md:flex-row">
-            <div class="flex justify-between gap-8">
-                <li><%= image_tag("bdo_logo", class: "h-6") %></li>
-                <li><%= image_tag("gcash_logo", class: "h-6") %></li>
-                <li><%= image_tag("union_bank_logo", class: "h-6") %></li>
-                <li><%= image_tag("bpi_logo", class: "h-6") %></li>
-            </div>
-            <div class="flex justify-between gap-8">
-                <li><%= image_tag("seven_eleven_logo", class: "h-6") %></li>
-                <li><%= image_tag("citi_bank_logo", class: "h-6") %></li>
-                <li><%= image_tag("lbc_logo", class: "h-6") %></li>
-                <li><%= image_tag("maya_logo", class: "h-6") %></li>
-            </div>
-        </ul>
+        <%= render "home/sponsor"%>
     </section>
 </main>
