@@ -1,10 +1,12 @@
 class StocksController < ApplicationController
   def index
     @stocks = Stock.all
+    @stock_listings = StockListing.all
   end
 
   def show
     @stock = Stock.find(params[:id])
+    @stock_listings = StockListing.find_by(symbol: @stock.symbol)
 
     stock_data = JSON.parse(@stock.data)
     @chart_data = stock_data.map do |date, data|
