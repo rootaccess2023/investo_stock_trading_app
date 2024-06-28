@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_21_092729) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_28_115747) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "companies", force: :cascade do |t|
+    t.string "cik", null: false
+    t.string "name"
+    t.string "ticker"
+    t.json "prices"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cik"], name: "index_companies_on_cik", unique: true
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
@@ -22,6 +32,28 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_21_092729) do
     t.datetime "updated_at", null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource"
+  end
+
+  create_table "stock_listings", force: :cascade do |t|
+    t.string "symbol"
+    t.string "name"
+    t.string "asset_type"
+    t.date "ipoDate"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.string "symbol"
+    t.decimal "open"
+    t.decimal "high"
+    t.decimal "low"
+    t.decimal "close"
+    t.integer "volume"
+    t.string "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

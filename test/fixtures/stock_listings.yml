@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  symbol: MyString
+  name: MyString
+  asset_type: MyString
+  ipoDate: 2024-06-28
+  status: MyString
+
+two:
+  symbol: MyString
+  name: MyString
+  asset_type: MyString
+  ipoDate: 2024-06-28
+  status: MyString

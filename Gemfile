@@ -73,3 +73,7 @@ gem "font-awesome-rails"
 gem "devise", "~> 4.9"
 
 gem 'rolify'
+
+gem 'httparty'
+
+gem "chartkick"
