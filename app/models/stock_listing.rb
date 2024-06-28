@@ -1,3 +1,3 @@
 class StockListing < ApplicationRecord
-    has_one :stock
+    belongs_to :stock
 end
