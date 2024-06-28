@@ -5,6 +5,16 @@ class StocksController < ApplicationController
 
   def show
     @stock = Stock.find(params[:id])
+
+    stock_data = JSON.parse(@stock.data)
+    @chart_data = stock_data.map do |date, data|
+      {
+        name: @stock.symbol,
+        data: {
+          date.to_date => data["4. close"].to_f
+        }
+      }
+    end
   end
 
   def fetch_data

@@ -1,5 +1,7 @@
 <h1><%= @stock.symbol %> Details</h1>
 
+<%=line_chart @chart_data, legend: false, prefix: "$", thousands: ","  %>
+
 <table>
   <tr>
     <th>Symbol</th>
@@ -24,6 +26,10 @@
   <tr>
     <th>Volume</th>
     <td><%= @stock.volume %></td>
+  </tr>
+  <tr>
+    <th>Volume</th>
+    <td><%= @stock.data %></td>
   </tr>
 </table>
 

@@ -14,6 +14,14 @@ class Stock < ApplicationRecord
     data = response.parsed_response["Time Series (Daily)"]
     return unless data
 
+    stock_data = {}
+
+    data.each do |date, values|
+      stock_data[date] = {
+        "4. close" => values['4. close']
+      }
+    end
+
     latest_date, latest_data = data.first
     Stock.create(
       symbol: symbol,
@@ -21,7 +29,8 @@ class Stock < ApplicationRecord
       high: latest_data['2. high'],
       low: latest_data['3. low'],
       close: latest_data['4. close'],
-      volume: latest_data['5. volume']
+      volume: latest_data['5. volume'],
+      data: stock_data.to_json
     )
   end
 end
