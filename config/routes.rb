@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'stocks/index'
+  get 'stocks/show'
   # Admin namespace for admin-related resources
   namespace :admin do
     resources :users, only: [:index] do
@@ -16,6 +18,12 @@ Rails.application.routes.draw do
         patch :change_role_to_admin
         patch :change_role_to_trader
       end
+    end
+  end
+
+  resources :stocks, only: [:index, :show] do
+    collection do
+      get 'fetch_data'
     end
   end
 
