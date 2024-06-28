@@ -3,41 +3,15 @@
         <%= render "shared/nav"%>
     </section>
     <main class="h-screen w-full p-8 bg-teal-50 overflow-scroll">
-      <h1><%= @stock.symbol %> Details</h1>
-
-      <%=line_chart @chart_data, legend: false, prefix: "$", thousands: ","  %>
-
-      <table>
-        <tr>
-          <th>Symbol</th>
-          <td><%= @stock.symbol %></td>
-        </tr>
-        <tr>
-          <th>Open</th>
-          <td><%= @stock.open %></td>
-        </tr>
-        <tr>
-          <th>High</th>
-          <td><%= @stock.high %></td>
-        </tr>
-        <tr>
-          <th>Low</th>
-          <td><%= @stock.low %></td>
-        </tr>
-        <tr>
-          <th>Close</th>
-          <td><%= @stock.close %></td>
-        </tr>
-        <tr>
-          <th>Volume</th>
-          <td><%= @stock.volume %></td>
-        </tr>
-        <tr>
-          <th>Volume</th>
-          <td><%= @stock.data %></td>
-        </tr>
-      </table>
-
+      <section class="flex justify-between">
+        <%= render "stocks/stocks_header" %>
+      </section>
+      <section>
+        <%= render "stocks/stocks_chart" %>
+      </section>
+      <section class="flex flex-col gap-2">
+        <%= render "stocks/stocks_details"%>
+      </section>
       <%= link_to 'Back to Stocks', stocks_path %>
     </main>
 </div>

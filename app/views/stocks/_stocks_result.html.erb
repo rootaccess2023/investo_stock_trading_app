@@ -1,0 +1,11 @@
+<div>
+    <h1 class="text-xl">Recent Stock Searches</h1>
+    <ul>
+    <% @stocks.each do |stock| %>
+        <li>
+        <%= stock.symbol %>
+        <%= link_to 'Show', stock_path(stock) %>
+        </li>
+    <% end %>
+    </ul>
+</div>

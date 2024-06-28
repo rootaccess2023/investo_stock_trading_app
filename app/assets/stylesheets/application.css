@@ -31,3 +31,8 @@
 .full-height-dashboard {
    height: calc(100vh - 14.5rem);
 }
+
+input:focus {
+   outline: none!important;
+   box-shadow: none!important;
+ }
