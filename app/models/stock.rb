@@ -1,6 +1,9 @@
 require 'httparty'
 
 class Stock < ApplicationRecord
+
+  belongs_to :stock_listings
+
   BASE_URL = 'https://www.alphavantage.co/query'
   API_KEY = '9IFOLBEWI6DUYO27'
 

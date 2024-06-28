@@ -1,45 +1,51 @@
-<main data-controller="search">
-  <h1>Stocks</h1>
+<div class="flex">
+    <section>
+        <%= render "shared/nav"%>
+    </section>
+    <main data-controller="search" class="h-screen w-full p-8 bg-teal-50 overflow-scroll">
+      <h1>Stocks</h1>
 
-  <%= form_with url: fetch_data_stocks_path, method: :get, local: true do %>
-    <div>
-      <label for="symbol_display">Stock Symbol:</label>
-      <input data-search-target="input" type="text" name="symbol_display" id="symbol_display" required>
-      <input data-search-target="hiddenInput" type="hidden" name="symbol" id="symbol">
-      <button type="submit">Fetch Data</button>
-    </div>
-  <% end %>
-
-  <div id="stock-listings" data-search-target="listings" style="display: none;">
-    <% @stock_listings.each do |listing| %>
-      <p class="stock-listing" data-search-target="listing"><%= listing.symbol %> <%= listing.name %></p>
-    <% end %>
-  </div>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Symbol</th>
-        <th>Open</th>
-        <th>High</th>
-        <th>Low</th>
-        <th>Close</th>
-        <th>Volume</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @stocks.each do |stock| %>
-        <tr>
-          <td><%= stock.symbol %></td>
-          <td><%= stock.open %></td>
-          <td><%= stock.high %></td>
-          <td><%= stock.low %></td>
-          <td><%= stock.close %></td>
-          <td><%= stock.volume %></td>
-          <td><%= link_to 'Show', stock_path(stock) %></td>
-        </tr>
+      <%= form_with url: fetch_data_stocks_path, method: :get, local: true do %>
+        <div>
+          <label for="symbol_display">Stock Symbol:</label>
+          <input data-search-target="input" type="text" name="symbol_display" id="symbol_display" required>
+          <input data-search-target="hiddenInput" type="hidden" name="symbol" id="symbol">
+          <button type="submit">Fetch Data</button>
+        </div>
       <% end %>
-    </tbody>
-  </table>
-</main>
+
+      <div id="stock-listings" data-search-target="listings" style="display: none;">
+        <% @stock_listings.each do |listing| %>
+          <p class="stock-listing" data-search-target="listing"><%= listing.symbol %> <%= listing.name %></p>
+        <% end %>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Open</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Close</th>
+            <th>Volume</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @stocks.each do |stock| %>
+            <tr>
+              <td><%= stock.symbol %></td>
+              <td><%= stock.open %></td>
+              <td><%= stock.high %></td>
+              <td><%= stock.low %></td>
+              <td><%= stock.close %></td>
+              <td><%= stock.volume %></td>
+              <td><%= link_to 'Show', stock_path(stock) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </main>
+</div>
+
