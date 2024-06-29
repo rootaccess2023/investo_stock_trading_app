@@ -9,8 +9,8 @@ namespace :import do
         StockListing.create!(
           symbol: row['symbol'],
           name: row['name'],
-          asset_type: row['asset_type'],
-          ipoDate: row['ipo_date'],
+          asset_type: row['assetType'],
+          ipoDate: row['ipoDate'],
           status: row['status']
         )
       end
