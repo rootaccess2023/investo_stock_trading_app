@@ -1,0 +1,36 @@
+<div class="flex justify-between gap-4">
+    <span class="w-full flex flex-col justify-between items-center text-gray-800 text-sm border-gray-400 border-b border-dashed md:flex-row">
+        <p class="font-bold">Open</p>
+        <p><%= @stock.open %></p>
+    </span>
+    <span class="w-full flex flex-col justify-between items-center text-gray-800 text-sm border-gray-400 border-b border-dashed md:flex-row">
+        <p class="font-bold">Height</p>
+        <p><%= @stock.high %></p>
+    </span>
+    <span class="w-full flex flex-col justify-between items-center text-gray-800 text-sm border-gray-400 border-b border-dashed md:flex-row">
+        <p class="font-bold">Low</p>
+        <p><%= @stock.low %></p>
+    </span>
+    <span class="w-full flex flex-col justify-between items-center text-gray-800 text-sm border-gray-400 border-b border-dashed md:flex-row">
+        <p class="font-bold">Volume</p>
+        <p><%= @stock.volume %></p>
+    </span>
+</div>
+<div class="flex justify-between gap-4">
+    <span class="w-full flex flex-col justify-between items-center text-gray-800 text-sm text-center border-gray-400 border-b border-dashed md:flex-row">
+        <p class="font-bold">Price Range</p>
+        <p><%= @stock.price_range %></p>
+    </span>
+    <span class="w-full flex flex-col justify-between items-center text-gray-800 text-sm text-center border-gray-400 border-b border-dashed md:flex-row">
+        <p class="font-bold">Intraday Change</p>
+        <p><%= @stock.intraday_change %></p>
+    </span>
+    <span class="w-full flex flex-col justify-between items-center text-gray-800 text-sm text-center border-gray-400 border-b border-dashed md:flex-row">
+    <p class="font-bold">IC Percentage</p>
+    <p><%= number_with_precision(@stock.ic_percentage, precision: 4) %></p>
+</span>
+    <span class="w-full flex flex-col justify-between items-center text-gray-800 text-sm text-center border-gray-400 border-b border-dashed md:flex-row">
+        <p class="font-bold">Midpoint Price</p>
+        <p><%= @stock.midpoint_price %></p>
+    </span>
+</div>

@@ -1,12 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["input", "hiddenInput", "listings", "listing"]
+  static targets = ["input", "hiddenInput", "listings", "listing", "searchBtn"]
 
   connect() {
     this.inputTarget.addEventListener('input', this.filterListings.bind(this))
-    this.inputTarget.addEventListener('focus', this.showListings.bind(this))
-    this.inputTarget.addEventListener('blur', this.hideListings.bind(this))
+    this.inputTarget.addEventListener('focus', this.handleFocus.bind(this))
+    this.inputTarget.addEventListener('blur', this.handleBlur.bind(this))
     this.addClickListenersToListings()
     this.filterListings()
     console.log("Stock controller connected")
@@ -44,8 +44,22 @@ export default class extends Controller {
   }
 
   hideListings() {
-    setTimeout(() => {
       this.listingsTarget.style.display = "none"
+  }
+
+  handleFocus() {
+    this.searchBtnTarget.style.display = "none"
+    this.inputTarget.classList.remove("rounded-3xl")
+    this.inputTarget.classList.add("rounded-t-3xl")
+    this.showListings()
+  }
+
+  handleBlur() {
+    setTimeout(() => {
+      this.searchBtnTarget.style.display = "block"
+      this.inputTarget.classList.add("rounded-3xl")
+      this.inputTarget.classList.remove("rounded-t-3xl")
+      this.hideListings()
     }, 200)
   }
 }

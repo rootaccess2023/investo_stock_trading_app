@@ -1,0 +1,19 @@
+<%= form_with url: fetch_data_stocks_path, method: :get, local: true do %>
+    <div class="relative">
+        <span class="absolute top-2 left-3 text-gray-400"><%= fa_icon "search"%></span>
+        <input data-search-target="input" class="w-full border-none outline-transparent pl-8 shadow rounded-3xl" type="text" name="symbol_display" id="symbol_display" required>
+        <input data-search-target="hiddenInput" type="hidden" name="symbol" id="symbol">
+    </div>
+    <section class="w-full relative -top-1">
+        <div id="stock-listings" data-search-target="listings" class="bg-white pb-4 px-6 max-h-[20rem] rounded-b-3xl overflow-scroll" style="display: none;">
+            <section class="border-t pt-1">
+            <% @stock_listings.each do |listing| %>
+                <p class="stock-listing py-1 hover:bg-gray-300 cursor-pointer" data-search-target="listing"><%= listing.symbol %> <%= listing.name %></p>
+            <% end %>
+            </section>
+        </div>
+    </section>
+    <section class="flex justify-center py-4">
+        <button data-search-target="searchBtn" class="bg-gray-300 px-4 py-1 hover:bg-teal-600 hover:text-white rounded-sm" type="submit">Stocks Search</button>
+    </section>
+<% end %>
