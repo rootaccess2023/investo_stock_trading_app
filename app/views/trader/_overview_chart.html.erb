@@ -1,4 +1,1 @@
-<div class="p-8">
-    <h1 class="text-lg font-semibold tracking-wide">Chart</h1>
-    <%= pie_chart @chart_data, height: "400px", library: { title: { text: "Portfolio Distribution" } } %>
-</div>
+<%= pie_chart @chart_data, height: "280px", colors: ["#14b8a6", "#0d9488", "#0f766e", "#115e59", "#134e4a", ""], library: { title: { text: "Portfolio Distribution" } } %>
