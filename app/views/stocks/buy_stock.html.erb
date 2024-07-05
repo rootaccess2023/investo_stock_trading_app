@@ -3,7 +3,9 @@
       <div class="absolute w-full h-full bg-white opacity-50"></div>
       <div class="relative z-10 bg-white opacity-100 px-4 shadow rounded">
           <section class="py-4 border-b">
-              <h1 class="text-xl font-bold">Buy <%= @stock.symbol %></h1>
+              <h1 class="text-xl font-bold">
+                <span class="text-teal-600"><%= @stock.symbol %></span>
+            </h1>
               <p><%= @stock_listings.name %></p>
           </section>
           <section class="py-2">
