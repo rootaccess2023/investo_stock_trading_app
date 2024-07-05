@@ -1,0 +1,30 @@
+<div class="flex">
+    <section>
+        <%= render "shared/nav"%>
+    </section>
+    <main class="h-screen w-full flex flex-col gap-8 p-8 pb-12 bg-teal-50 overflow-scroll">
+        <section class="w-full flex flex-col gap-8 lg:flex-row">
+            <div class="w-full lg:w-1/2 flex gap-4 bg-teal-600 p-8 rounded">
+                <%= render "trader/portfolio_value"%>
+            </div>
+            <div class="w-full lg:w-1/2 flex gap-8">
+                <%= render "trader/overview"%>
+            </div>
+        </section>
+        <section class="h-full w-full flex flex-col gap-8 lg:flex-row">
+            <div class="w-full flex flex-col gap-8 lg:w-full">
+                <div class="h-fit max-h-full bg-white shadow p-8 rounded ">
+                  <%= render "trader/stock_bought"%>
+                </div>
+                <div class="flex gap-8">
+                  <%= render "trader/news"%>
+                </div>
+            </div>
+            <div class="w-full pb-8 flex flex-col gap-8 lg:pb-0 lg:w-1/2">
+                <div class="h-full bg-white shadow rounded">
+                    <%= render "trader/overview_chart"%>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

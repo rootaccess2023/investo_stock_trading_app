@@ -1,0 +1,27 @@
+<nav class="h-16 max-w-[80rem] flex justify-between items-center px-4 mx-auto">
+    <%= link_to root_path do %>
+        <section class="flex items-center cursor-pointer">
+            <div><%= image_tag("investo_logo", class: "h-12") %></div>
+            <h1 class="text-lg text-slate-400 font-[5px] font-univers tracking-wider">INVESTO</h1>
+        </section>
+    <% end %>
+    <% if user_signed_in? %>
+        <%= link_to destroy_user_session_path, data: { "turbo-method": :delete } do %>
+            <section class="flex items-center bg-yellow-400 px-4 py-2 rounded-sm cursor-pointer hover:bg-yellow-500">
+                <span class="text-xl">
+                    <%= fa_icon "sign-out", class: "pr-4"%>
+                </span>
+                <span class="font-roboto tracking-tight">Sign Out</span>
+        </section>
+        <% end %>
+    <% else %>
+        <%= link_to new_user_session_path do %>
+            <section class="flex items-center bg-yellow-400 px-4 py-2 rounded-sm cursor-pointer hover:bg-yellow-500">
+                <span class="text-xl">
+                    <%= fa_icon "lock", class: "pr-4"%>
+                </span>
+                <span class="font-roboto tracking-tight">Login</span>
+        </section>
+        <% end %>
+    <% end %>
+</nav>

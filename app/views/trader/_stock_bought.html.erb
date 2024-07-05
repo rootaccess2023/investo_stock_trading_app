@@ -1,0 +1,30 @@
+
+<h1 class="text-lg font-semibold tracking-wide">Summary</h1>
+<main class="max-h-[20rem] overflow-scroll pr-3">
+<table class="w-full">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @grouped_transactions.each do |transaction| %>
+      <tr class=" hover:bg-gray-200">
+        <td class="w-full flex flex-col">
+            <span class="text-teal-500 text-2xl font-semibold"><%= transaction[:symbol] %></span>
+            <span class="tracking-tighter"><%= transaction[:name] %></span>
+        </td>
+        <td class="text-center"><%= transaction[:total_quantity] %></td>
+        <td class="text-center"><%= number_to_currency(transaction[:total_amount]) %></td>
+        <td class="h-full flex flex-col text-center justify-center text-white gap-2 mx-auto md:flex-row">
+            <span class="w-full bg-blue-500 p-1 rounded cursor-pointer">View</span>
+            <span class="w-full bg-yellow-400 p-1 rounded cursor-pointer">Sell</span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</main>

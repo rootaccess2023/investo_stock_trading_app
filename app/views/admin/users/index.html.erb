@@ -1,0 +1,59 @@
+<div class="flex">
+    <section>
+        <%= render "shared/nav"%>
+    </section>
+<main class="h-screen w-full p-8 bg-teal-50 overflow-scroll">
+    <%= render "shared/admin_search"%>
+    <h1 class="text-3xl font-bold pb-4">Hello Admin</h1>
+    <div class="w-full flex flex-col gap-4 md:flex-col lg:flex-row">
+        <section class="h-full w-full flex flex-col gap-4">
+            <div class="w-full rounded-sm">
+                <section class="w-full flex gap-4 md:gap-4">
+                     <div class="w-full flex flex-col gap-4 md:flex-row">
+                        <span class="w-full flex flex-col bg-white border border-gray-200 rounded-lg shadow">
+                            <p class="font-medium text-center bg-teal-600 text-white py-1 rounded-t-lg">Active Traders</p>
+                            <div class="h-full flex justify-center items-center bg-white text-gray-800 p-3 gap-2 rounded-b-lg">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight">1231231</h5>
+                                <h5 class="mb-2 px-2 py-1 rounded-full bg-teal-600 text-white text-lg font-bold tracking-tight"><%= fa_icon "user-plus"%></h5>
+                            </div>
+                        </span>
+                        <span class="w-full flex flex-col bg-white border border-gray-200 rounded-lg shadow">
+                            <p class="font-medium text-center bg-teal-600 text-white py-1 rounded-t-lg">No. of Trades</p>
+                            <div class="h-full flex justify-center items-center bg-white text-gray-800 p-3 gap-2 rounded-b-lg">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight">1231231</h5>
+                                <h5 class="mb-2 px-2 py-1 rounded-full bg-teal-600 text-white text-xl font-bold tracking-tight"><%= fa_icon "exchange"%></h5>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="w-full flex flex-col gap-4 md:flex-row">
+                        <span class="w-full flex flex-col bg-white border border-gray-200 rounded-lg shadow">
+                            <p class="font-medium text-center bg-teal-600 text-white py-1 rounded-t-lg">Total Revenue</p>
+                            <div class="h-full flex justify-center items-center bg-white text-gray-800 p-3 gap-2 rounded-b-lg">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight">1231231</h5>
+                                <h5 class="mb-2 px-2 py-1 rounded-full bg-teal-600 text-white text-xl font-bold tracking-tight"><%= fa_icon "money"%></h5>
+                            </div>
+                        </span>
+                        <span class="w-full flex flex-col bg-white border border-gray-200 rounded-lg shadow">
+                            <p class="font-medium text-center bg-teal-600 text-white py-1 rounded-t-lg">Trade Value</p>
+                            <div class="h-full flex justify-center items-center bg-white text-gray-800 p-3 gap-2 rounded-b-lg">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight">1231231</h5>
+                                <h5 class="mb-2 px-2 py-1 rounded-full bg-teal-600 text-white text-lg font-bold tracking-tight"><%= fa_icon "line-chart"%></h5>
+                            </div>
+                        </span>
+                    </div>
+                </section>
+            </div>
+            <div class="flex justify-center items-center h-80 bg-white rounded-lg shadow">
+                - Insert Analytics Here -
+            </div>
+        </section>
+        <section class="">
+            <div class="h-full bg-white p-4 rounded-lg shadow">
+                <h2 class="font-bold">Market Previews</h2>
+                - Show the Market Preview from Stock Model -
+            </div>
+        </section>
+    </div>
+</main>
+</div>
+

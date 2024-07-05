@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <title>Investo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link rel="icon" type="image/svg+xml" href="https://i.postimg.cc/26RFmc6N/investo-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <%= turbo_frame_tag "modal"  %>
+    <%= render "shared/global_nav"%>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <main class="h-fit flex border-t">
+      <section class="h-screen w-full">
+        <%= turbo_frame_tag "modal" %>
+        <%= yield %>
+      </section>
+    </main>
+    <%= render "shared/footer"%>
+  </body>
+</html>

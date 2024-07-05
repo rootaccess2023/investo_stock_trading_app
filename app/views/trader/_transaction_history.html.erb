@@ -1,0 +1,26 @@
+<div class="w-full p-8">
+    <section class="flex items-center gap-2">
+        <span><%= fa_icon "history"%></span>
+        <h1 class="text-lg font-semibold tracking-wide">Transaction History</h1>
+    </section>
+    <table class="w-full">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Quantity</th>
+                <th>Price per Stock</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% current_user.transactions.each do |transaction| %>
+            <tr class="text-center">
+                <td><%= transaction.symbol %></td>
+                <td><%= transaction.quantity %></td>
+                <td><%= number_to_currency(transaction.price) %></td>
+                <td><%= number_to_currency(transaction.price * transaction.quantity) %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,14 @@
+<div class="flex">
+    <section>
+        <%= render "shared/nav"%>
+    </section>
+    <main data-controller="search" class="h-screen w-full p-8 bg-teal-50 overflow-scroll">
+      <section>
+        <%= render "stocks/stocks_search"%>
+      </section>
+      <section>
+        <%= render "stocks/stocks_result"%>
+      </section>
+    </main>
+</div>
+

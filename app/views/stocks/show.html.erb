@@ -1,0 +1,17 @@
+<div class="flex">
+    <section>
+        <%= render "shared/nav"%>
+    </section>
+    <main class="h-screen w-full p-8 bg-teal-50 overflow-scroll">
+      <section class="flex flex-col pb-4">
+        <%= render "stocks/stocks_header" %>
+      </section>
+      <section>
+        <%= render "stocks/stocks_chart" %>
+      </section>
+      <section class="flex flex-col gap-2 pt-2">
+        <%= render "stocks/stocks_details"%>
+      </section>
+    </main>
+</div>
+
