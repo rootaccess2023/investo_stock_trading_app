@@ -7,14 +7,17 @@
     <% if @stocks.empty? %>
         <p>No recent stock searches.</p>
     <% else %>
-            <% @stocks.each do |stock| %>
-            <%= link_to stock_path(stock) do %>
-                <li class="hover:bg-gray-300 px-8 mb-2 cursor-pointer">
-                    <span>
-                        <p class="font-semibold text-2xl tracking-wide text-teal-700"><%= stock.symbol %></p>
-                        <p class="text-md"><%= StockListing.find_name_by_symbol(stock.symbol) %></p>
-                    </span>
-                </li>
+        <% @stocks.group_by { |stock| stock.created_at.to_date }.each do |date, stocks_on_date| %>
+            <h2 class="text-xl mt-4 mb-2 font-semibold text-teal-700"><%= date.strftime("%B %d, %Y") %></h2>
+            <% stocks_on_date.each do |stock| %>
+                <%= link_to stock_path(stock) do %>
+                    <li class="hover:bg-gray-300 px-8 mb-2 cursor-pointer">
+                        <span>
+                            <p class="font-semibold text-2xl tracking-wide text-teal-700"><%= stock.symbol %></p>
+                            <p class="text-md"><%= StockListing.find_name_by_symbol(stock.symbol) %></p>
+                        </span>
+                    </li>
+                <% end %>
             <% end %>
         <% end %>
     <% end %>
