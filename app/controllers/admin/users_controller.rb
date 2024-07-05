@@ -4,6 +4,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     @number_of_traders = User.count
+    @number_of_trades = Transaction.count
   end
 
   def approved_accounts
