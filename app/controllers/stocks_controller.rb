@@ -36,7 +36,8 @@
         @transaction = Transaction.new(transaction_params.merge(
           symbol: @stock.symbol,
           price: @stock.close,
-          user_id: current_user.id
+          user_id: current_user.id,
+          transaction_type: 'buy'
         ))
 
         if @transaction.save

@@ -10,19 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_01_193138) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_05_202100) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "companies", force: :cascade do |t|
-    t.string "cik", null: false
-    t.string "name"
-    t.string "ticker"
-    t.json "prices"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cik"], name: "index_companies_on_cik", unique: true
-  end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
@@ -54,6 +44,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_01_193138) do
     t.string "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_stocks_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -64,6 +56,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_01_193138) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "transaction_type"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 

@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   get 'trader/dashboard'
-  get 'stocks/index'
-  get 'stocks/show'
   # Admin namespace for admin-related resources
   namespace :admin do
     resources :users, only: [:index] do

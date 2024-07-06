@@ -13,8 +13,13 @@
         <%= link_to stocks_path do %>
             <button class="w-20 text-sm bg-gray-400 font-semibold hover:bg-gray-500 px-2 py-1 rounded-sm">Back</button>
         <% end %>
-        <%= link_to buy_stock_stock_path(@stock), method: :post, data: {turbo_frame: "modal"} do %>
-            <button class="w-20 text-sm bg-yellow-400 hover:bg-yellow-500 font-semibold px-2 py-1 rounded-sm">Buy Stock</button>
+        <% netherlands_time = @stock.created_at.in_time_zone("Amsterdam") %>
+        <% if netherlands_time.to_date == Date.current %>
+            <%= link_to buy_stock_stock_path(@stock), method: :post, data: {turbo_frame: "modal"} do %>
+                <button class="w-20 text-sm bg-yellow-400 hover:bg-yellow-500 font-semibold px-2 py-1 rounded-sm">Buy Stock</button>
+            <% end %>
+        <% else %>
+            <p class="text-xs text-red-500 italic">This stock is not up to date. Search the stock again for the updated price.</p>
         <% end %>
     </div>
 </main>
