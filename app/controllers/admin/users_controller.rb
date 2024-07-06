@@ -5,6 +5,13 @@ class Admin::UsersController < ApplicationController
   def index
     @number_of_traders = User.count
     @number_of_trades = Transaction.count
+    total_revenue = Transaction.sum('price * quantity') * 0.05
+    @total_revenue = total_revenue.round
+    if @number_of_trades > 0
+      @trade_value = @total_revenue / @number_of_trades
+    else
+      @trade_value = 0
+    end
   end
 
   def approved_accounts
