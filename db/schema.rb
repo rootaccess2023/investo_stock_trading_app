@@ -44,8 +44,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_05_202100) do
     t.string "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_stocks_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|

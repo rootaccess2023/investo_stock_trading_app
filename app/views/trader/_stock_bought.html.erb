@@ -1,5 +1,6 @@
 <main class="max-h-[25rem] flex flex-col gap-4 overflow-scroll">
   <% @grouped_transactions.each do |transaction| %>
+  <%= link_to sell_stock_path do %>
     <div class="flex justify-between bg-gray-200 hover:bg-gray-300 shadow rounded-lg p-4 group cursor-pointer">
       <div class="flex gap-4">
         <div class="h-20 w-20 flex justify-center items-center text-lg text-teal-600 bg-white font-semibold tracking-tight rounded-full">
@@ -28,5 +29,6 @@
         <%= fa_icon "arrow-right"%>
       </div>
     </div>
+    <%end%>
   <% end %>
 </main>
