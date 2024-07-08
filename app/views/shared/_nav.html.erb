@@ -1,10 +1,12 @@
 <nav class="h-screen w-12 md:w-[10rem] lg:w-[20rem] text-white bg-teal-600 md:p-4">
     <ul class="h-full max-w-[1210px] text-base flex flex-col m-auto">
+        <% if current_user.has_role?(:admin) %>
         <%= link_to admin_users_path do %>
             <li class="h-12 flex justify-center md:justify-start items-center md:px-6 cursor-pointer hover:bg-teal-700 text-center text-2xl gap-4 rounded-sm">
                 <span class="w-8 md:hidden lg:flex"><%= fa_icon "tachometer"%></span>
                 <span class="font-bold text-xl hidden md:flex">Admin</span>
             </li>
+        <% end %>
         <% end %>
         <%= link_to trader_dashboard_path do %>
             <li class="h-12 flex justify-center md:justify-start items-center md:px-6 cursor-pointer hover:bg-teal-700 text-center text-2xl gap-4 rounded-sm">
