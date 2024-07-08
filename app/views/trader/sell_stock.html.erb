@@ -1,0 +1,26 @@
+<h1>Sell Stock</h1>
+
+<%= form_with url: sell_transaction_path, method: :post do %>
+  <div>
+    <label for="symbol">Stock:</label>
+    <select name="symbol" id="symbol">
+      <% @stocks.each do |stock| %>
+        <option value="<%= stock[:symbol] %>"><%= stock[:name] %> (<%= stock[:symbol] %>) - <%= stock[:total_quantity] %> shares</option>
+      <% end %>
+    </select>
+  </div>
+
+  <div>
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" id="quantity" min="1">
+  </div>
+
+  <div>
+    <label for="price">Price per Share:</label>
+    <input type="text" name="price" id="price">
+  </div>
+
+  <div>
+    <button type="submit" class="w-20 text-sm bg-yellow-400 hover:bg-yellow-500 font-semibold px-2 py-1 rounded-sm">Sell Stock</button>
+ </div>
+<% end %>
