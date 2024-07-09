@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'trader/dashboard'
+  get 'sell_stock', to: 'trader#sell_stock'
+  post 'sell_transaction', to: 'trader#sell_transaction'
   # Admin namespace for admin-related resources
   namespace :admin do
     resources :users, only: [:index] do
