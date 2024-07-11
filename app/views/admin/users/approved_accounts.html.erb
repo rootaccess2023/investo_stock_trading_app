@@ -38,11 +38,13 @@
                 <%= user.email %>
               </th>
               <td class="flex px-6 py-4 text-black gap-4">
-                <%= link_to change_role_to_trader_admin_user_path(user), data: { "turbo-method": :patch } do %>
-                  <p class="w-fit text-white bg-yellow-500 font-medium px-2 py-1 rounded">Set as Trader</p>
-                <% end %>
-                <%= link_to delete_account_admin_user_path(user), data: { "turbo-method": :patch } do %>
-                  <p class="w-fit text-white bg-red-600 font-medium px-2 py-1 rounded"><%= fa_icon "trash" %></p>
+                <% unless ["adminpolo@investo.com", "admincarloz@investo.com"].include?(user.email) %>
+                  <%= link_to change_role_to_trader_admin_user_path(user), data: { "turbo-method": :patch } do %>
+                    <p class="w-fit text-white bg-yellow-500 font-medium px-2 py-1 rounded">Set as Trader</p>
+                  <% end %>
+                  <%= link_to delete_account_admin_user_path(user), data: { "turbo-method": :patch } do %>
+                    <p class="w-fit text-white bg-red-600 font-medium px-2 py-1 rounded"><%= fa_icon "trash" %></p>
+                  <% end %>
                 <% end %>
               </td>
             </tr>

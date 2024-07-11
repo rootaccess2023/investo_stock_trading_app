@@ -14,7 +14,7 @@
             <button class="w-20 text-sm bg-gray-400 font-semibold hover:bg-gray-500 px-2 py-1 rounded-sm">Back</button>
         <% end %>
         <% netherlands_time = @stock.created_at.in_time_zone("Amsterdam") %>
-        <% if netherlands_time.to_date == Date.current %>
+        <% if netherlands_time.to_date == Date.current && current_user.has_role?(:approved_trader)%>
             <%= link_to buy_stock_stock_path(@stock), method: :post, data: {turbo_frame: "modal"} do %>
                 <button class="w-20 text-sm bg-yellow-400 hover:bg-yellow-500 font-semibold px-2 py-1 rounded-sm">Buy Stock</button>
             <% end %>
