@@ -77,3 +77,7 @@ gem 'rolify'
 gem 'httparty'
 
 gem "chartkick"
+
+gem "groupdate"
+
+gem 'faker'

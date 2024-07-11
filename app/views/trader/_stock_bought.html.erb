@@ -1,34 +1,41 @@
+<div class="flex justify-end pb-4">
+    <%= link_to sell_stock_path, data: {turbo_frame: "sellModal"} do %>
+      <h2 class="w-fit text-sm font-medium bg-yellow-400 px-2 py-1 rounded hover:bg-yellow-500 cursor-pointer">
+        <span class="text-sm"><%= fa_icon "exchange" %></span>
+        Sell
+      </h2>
+    <% end %>
+</div>
 <main class="max-h-[25rem] flex flex-col gap-4 overflow-scroll">
-  <% @grouped_transactions.each do |transaction| %>
-  <%= link_to sell_stock_path do %>
-    <div class="flex justify-between bg-gray-200 hover:bg-gray-300 shadow rounded-lg p-4 group cursor-pointer">
-      <div class="flex gap-4">
-        <div class="h-20 w-20 flex justify-center items-center text-lg text-teal-600 bg-white font-semibold tracking-tight rounded-full">
-          <%= transaction[:symbol] %>
+    <% @grouped_transactions.each do |transaction| %>
+      <% next if transaction[:total_quantity].zero? %>
+      <div class="flex justify-between bg-gray-200 hover:bg-gray-300 shadow rounded-lg p-4 group cursor-pointer">
+        <div class="flex gap-4">
+          <div class="h-20 w-20 flex justify-center items-center text-lg text-teal-600 bg-white font-semibold tracking-tight rounded-full">
+            <%= transaction[:symbol] %>
+          </div>
+          <section class="flex flex-col justify-center">
+            <div class="font-semibold">
+              <%= transaction[:name] %>
+            </div>
+            <div class="">
+              <div class="">
+                <span><%= transaction[:total_quantity] %></span>
+                <% if transaction[:total_quantity] == 1 %>
+                  <span>Stock</span>
+                <% else %>
+                  <span>Stocks</span>
+                <% end %>
+              </div>
+              <div class="">
+                <span>$ <%= transaction[:total_amount] %></span>
+              </div>
+            </div>
+          </section>
         </div>
-        <section class="flex flex-col justify-center">
-          <div class="font-semibold">
-            <%= transaction[:name] %>
-          </div>
-          <div class="">
-            <div class="">
-              <span><%= transaction[:total_quantity] %></span>
-              <% if transaction[:total_quantity] == 1 %>
-                <span>Stock</span>
-              <% else %>
-                <span>Stocks</span>
-              <% end %>
-            </div>
-            <div class="">
-              <span>$ <%= transaction[:total_amount] %></span>
-            </div>
-          </div>
-        </section>
+        <div class="flex items-center text-lg text-gray-500 group-hover:text-gray-700 group-hover:scale-125">
+          <%= fa_icon "arrow-right"%>
+        </div>
       </div>
-      <div class="flex items-center text-lg text-gray-500 group-hover:text-gray-700 group-hover:scale-125">
-        <%= fa_icon "arrow-right"%>
-      </div>
-    </div>
-    <%end%>
-  <% end %>
+    <% end %>
 </main>

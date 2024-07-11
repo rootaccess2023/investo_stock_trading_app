@@ -5,6 +5,21 @@ class Admin::UsersController < ApplicationController
   def index
     @number_of_traders = User.count
     @number_of_trades = Transaction.count
+    total_revenue = Transaction.sum('price * quantity') * 0.02
+    @total_revenue = total_revenue.round
+    if @number_of_trades > 0
+      @trade_value = @total_revenue / @number_of_trades
+    else
+      @trade_value = 0
+    end
+
+    @users = User.all
+    @user_admins = User.with_role(:admin).count
+    @user_traders = User.with_role(:approved_trader).count
+
+    @traders_by_day = User.group_by_day(:created_at).count
+    @trades_by_day = Transaction.group_by_day(:created_at).count
+    @revenue_by_day = Transaction.group_by_day(:created_at).sum('price * quantity * 0.025')
   end
 
   def approved_accounts

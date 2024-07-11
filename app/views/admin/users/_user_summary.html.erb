@@ -1,0 +1,15 @@
+<section class="flex gap-2">
+<div class="w-full text-center text-lg text-white bg-gray-400 hover:bg-teal-600 rounded-lg px-4 py-1 cursor-pointer">
+    <span class="font-semibold">Admin (<%= @user_admins%>)</span>
+</div>
+<div class="w-full text-center text-lg text-white bg-gray-400 hover:bg-teal-600 rounded-lg px-4 py-1 cursor-pointer">
+    <span class="font-semibold">Traders (<%= @user_traders%>)</span>
+</div>
+</section>
+<div class="overflow-scroll bg-yellow-50 px-4 py-2 shadow">
+    <div>
+<% @users.each do |user| %>
+    <p class="mb-2 border-b"><%= user.email%></p>
+<% end %>
+    </div>
+</div>

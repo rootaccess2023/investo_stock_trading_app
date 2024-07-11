@@ -1,26 +1,52 @@
-<h1>Sell Stock</h1>
+<%= turbo_frame_tag "sellModal" do %>
+  <div class="sellModal fixed w-full h-screen flex items-center justify-center p-4">
+    <div class="absolute w-full h-full bg-white opacity-50"></div>
+    <div class="relative z-10 bg-white opacity-100 px-4 shadow rounded">
+      <section class="py-4 border-b">
+        <h1 class="text-xl font-bold">
+          Sell Stock
+        </h1>
+      </section>
+      <section class="py-2">
+        <%= form_with url: sell_transaction_path, method: :post, data: { turbo: "false" } do |form| %>
+          <div class="field flex flex-col pb-4">
+            <span>
+              <select name="symbol" id="symbol" class="form-control">
+                <% @stocks.each do |stock| %>
+                  <% if stock[:total_quantity] > 0 %>
+                    <option value="<%= stock[:symbol] %>">
+                      <%= stock[:name] %> (<%= stock[:symbol] %>) - <%= stock[:total_quantity] %> shares
+                    </option>
+                  <% end %>
+                <% end %>
+              </select>
+            </span>
+          </div>
 
-<%= form_with url: sell_transaction_path, method: :post do %>
-  <div>
-    <label for="symbol">Stock:</label>
-    <select name="symbol" id="symbol">
-      <% @stocks.each do |stock| %>
-        <option value="<%= stock[:symbol] %>"><%= stock[:name] %> (<%= stock[:symbol] %>) - <%= stock[:total_quantity] %> shares</option>
-      <% end %>
-    </select>
+          <div class="field flex flex-col pb-4">
+            <span>
+              <%= form.label :quantity, "Quantity:" %>
+            </span>
+            <span>
+              <%= form.number_field :quantity, min: 1, class: 'form-control' %>
+            </span>
+          </div>
+
+          <div class="actions flex justify-center py-4 gap-4 border-t">
+            <span class="w-24 flex justify-center text-white bg-yellow-400 px-4 py-1 rounded-sm cursor-pointer hover:bg-yellow-500">
+              <%= form.submit "Sell Stock", class: "cursor-pointer"%>
+            </span>
+            <span class="w-24 flex justify-center text-white bg-gray-400 px-4 py-1 rounded-sm cursor-pointer hover:bg-gray-500">
+              <%= link_to "#", data: {
+                controller: "sellModals",
+                action: "sellModals#close"
+              } do %>
+                Cancel
+              <% end %>
+            </span>
+          </div>
+        <% end %>
+      </section>
+    </div>
   </div>
-
-  <div>
-    <label for="quantity">Quantity:</label>
-    <input type="number" name="quantity" id="quantity" min="1">
-  </div>
-
-  <div>
-    <label for="price">Price per Share:</label>
-    <input type="text" name="price" id="price">
-  </div>
-
-  <div>
-    <button type="submit" class="w-20 text-sm bg-yellow-400 hover:bg-yellow-500 font-semibold px-2 py-1 rounded-sm">Sell Stock</button>
- </div>
 <% end %>
