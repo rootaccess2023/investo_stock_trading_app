@@ -36,3 +36,7 @@ input:focus {
    outline: none!important;
    box-shadow: none!important;
  }
+
+ .active {
+   background-color: red;
+}
