@@ -12,12 +12,19 @@
             </div>
         </section>
         <section class="flex flex-col gap-8 lg:flex-row ">
+            <% if @grouped_transactions.empty? %>
+            <div class="w-full flex flex-col justify-center items-center gap-4">
+                <h1 class="w-full flex text-2xl font-medium lg:text-3xl">Get started</h1>
+                <%= render "trader/investo_steps"%>
+            </div>
+            <%else %>
             <div class="w-full lg:w-1/2">
                 <%= render "trader/stock_bought"%>
             </div>
             <div class="w-full flex justify-center items-center bg-white shadow rounded-lg p-4 lg:w-1/2">
                 <%= render "trader/overview_chart"%>
             </div>
+            <% end %>
         </section>
     </main>
 </div>

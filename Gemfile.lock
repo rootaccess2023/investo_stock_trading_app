@@ -110,9 +110,13 @@ GEM
       warden (~> 1.2.3)
     drb (2.2.1)
     erubi (1.13.0)
+    faker (3.4.1)
+      i18n (>= 1.8.11, < 2)
     font-awesome-rails (4.7.0.8)
       railties (>= 3.2, < 8.0)
     globalid (1.2.1)
+      activesupport (>= 6.1)
+    groupdate (6.4.0)
       activesupport (>= 6.1)
     httparty (0.22.0)
       csv
@@ -293,7 +297,9 @@ DEPENDENCIES
   chartkick
   debug
   devise (~> 4.9)
+  faker
   font-awesome-rails
+  groupdate
   httparty
   importmap-rails
   jbuilder

@@ -1,20 +1,20 @@
-<div class="w-full flex items-center bg-teal-500 rounded-lg shadow gap-2 pl-8 py-4 text-white xl:flex-col xl:justify-center xl:pl-0 cursor-pointer">
-    <span class="w-10 h-10 flex justify-center items-center text-2xl bg-white text-teal-500 rounded-full"><%= fa_icon "dollar"%></span>
+<div class="w-full flex items-center bg-green-500 rounded-lg shadow gap-2 pl-4 py-4 text-white xl:flex-col xl:justify-center xl:pl-0 cursor-pointer">
+    <span class="w-10 h-10 flex justify-center items-center text-2xl bg-white text-green-500 rounded-full"><%= fa_icon "dollar"%></span>
     <span class="xl:text-center">
         <h2 class="font-medium text-white text-xs">Gains</h2>
-        <h1 class="font-medium text-white text-2xl">$1000</h1>
+        <h1 class="font-medium text-white text-2xl">$<%= @gains %></h1>
     </span>
 </div>
-<div class="w-full flex items-center bg-teal-500 rounded-lg shadow gap-2 pl-8 py-4 text-white xl:flex-col xl:justify-center xl:pl-0 cursor-pointer">
-    <span class="w-10 h-10 flex justify-center items-center text-2xl bg-white text-teal-500 rounded-full"><%= fa_icon "arrow-down"%></span>
+<div class="w-full flex items-center bg-red-500 rounded-lg shadow gap-2 pl-4 py-4 text-white xl:flex-col xl:justify-center xl:pl-0 cursor-pointer">
+    <span class="w-10 h-10 flex justify-center items-center text-2xl bg-white text-red-500 rounded-full"><%= fa_icon "arrow-down"%></span>
     <span class="xl:text-center">
         <h2 class="font-medium text-white text-xs">Loss</h2>
-        <h1 class="font-medium text-white text-2xl">$1000</h1>
+        <h1 class="font-medium text-white text-2xl">$<%= @losses %></h1>
     </span>
 </div>
 
-<div class="w-full flex items-center bg-teal-500 rounded-lg shadow gap-2 pl-8 py-4 text-white xl:flex-col xl:justify-center xl:pl-0 cursor-pointer">
-    <span class="w-10 h-10 flex justify-center items-center text-2xl bg-white text-teal-500 rounded-full"><%= fa_icon "money"%></span>
+<div class="w-full flex items-center bg-blue-500 rounded-lg shadow gap-2 pl-4 py-4 text-white xl:flex-col xl:justify-center xl:pl-0 cursor-pointer">
+    <span class="w-10 h-10 flex justify-center items-center text-2xl bg-white text-blue-500 rounded-full"><%= fa_icon "money"%></span>
     <span class="xl:text-center">
         <h2 class="font-medium text-white text-xs">Cost</h2>
         <h1 class="font-medium text-white text-2xl">$<%= @transaction_cost %></h1>

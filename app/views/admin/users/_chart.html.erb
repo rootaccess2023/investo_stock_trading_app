@@ -1,0 +1,19 @@
+ <span class="w-full px-4" data-admin-overview-target="lineChart">
+        <h1 class="text-center font-semibold text-xl tracking-tight">Number of Active Traders</h1>
+        <%= line_chart @traders_by_day, colors: ["#047857"] %>
+    </span>
+    <span class="w-full" data-admin-overview-target="barChart" style="display: none;">
+        <h1 class="text-center font-semibold text-xl tracking-tight">Number of Trades</h1>
+        <%= column_chart @trades_by_day, colors: ["#047857"] %>
+    </span>
+    <span class="w-full" data-admin-overview-target="lineChartTwo" style="display: none;">
+        <h1 class="text-center font-semibold text-xl tracking-tight">Total Revenue</h1>
+        <%= line_chart @revenue_by_day, colors: ["#34D399"] %>
+    </span>
+    <span class="w-full" data-admin-overview-target="lineChartThree" style="display: none;">
+        <h1 class="text-center font-semibold text-xl tracking-tight">Revenue with Trade Value</h1>
+        <%= line_chart [
+            { name: "Revenues", data: @revenue_by_day },
+            { name: "Trade Value", data: Hash[@revenue_by_day.keys.zip([@trade_value] * @revenue_by_day.length)] }
+        ], colors: ["#14b8a6", "#047857"] %>
+    </span>
